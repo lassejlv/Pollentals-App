@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
-
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
-    <main className="container mx-auto pt-10">
-      <Link to={"/map"} className="bg-lightGreen px-8 py-3 rounded-md text-white font-bold">
+    <>
+      <Navbar />
+      <Link
+        to={"/map"}
+        className="rounded-md bg-lightGreen px-8 py-3 font-bold text-white"
+      >
         Go to map
       </Link>
-    </main>
-  )
+
+      <Footer />
+    </>
+  );
 }
