@@ -2,8 +2,6 @@ export default function Navbar() {
   const pathName =
     typeof window !== "undefined" ? window.location.pathname : "";
 
-  console.log(pathName);
-
   return (
     <nav className="flex w-full items-center justify-center bg-lightGreen p-4">
       {pathName === "/map" ? (
