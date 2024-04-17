@@ -38,7 +38,7 @@ export default function Map() {
                 zoom: 8
             }}
             style={{ width: 600, height: 1000 }}
-            mapboxAccessToken='pk.eyJ1IjoibGFzc2V2IiwiYSI6ImNsMnU0YjNnaTA5ZGUzY28yZjU3bDJ6anYifQ.Qa_8AVnty69jSB-f54-5xQ'
+            mapboxAccessToken='<token>'
             mapStyle="mapbox://styles/mapbox/streets-v11"
         >
 
