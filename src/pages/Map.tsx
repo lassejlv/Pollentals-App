@@ -1,19 +1,56 @@
-import { useLocation } from "react-router-dom";
+
+import ReactMapGl, { Marker } from 'react-map-gl';
+import { useGeolocation } from '../hooks/useLocation';
+import { FaMapPin } from "react-icons/fa";
+import { BarLoader } from 'react-spinners';
+
+
 
 export default function Map() {
-    const { locationInfo, locationError } = useLocation();
+    let longitude = 9.921747;
+    let latitude = 57.048820;
 
-    console.log({ locationInfo, locationError });
+    const { locationInfo, locationError } = useGeolocation();
 
-    return <>
+    if (locationError) {
+        return <div>Error: {locationError}</div>
+    }
 
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.138352942402!2d9.96698602271711!3d57.04835859484329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464932b69856edb3%3A0xe12d94d82c0b02c7!2sTECHCOLLEGE!5e0!3m2!1sda!2sdk!4v1713358548324!5m2!1sda!2sdk"
-            className="w-full h-screen"
-            style={{ border: 0 }}
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade">
-        </iframe>
-    </>
+    if (!locationInfo) {
+        return <div className='flex items-center justify-center h-[75vh]'>
+            <BarLoader color='#4ba598' />
+        </div>
+    }
+
+    if (locationInfo) {
+        longitude = locationInfo.coords.longitude;
+        latitude = locationInfo.coords.latitude;
+    }
+
+
+    return (
+        <ReactMapGl
+            mapLib={import('mapbox-gl')}
+            initialViewState={{
+                //Aalborg, Denmark
+                longitude: longitude,
+                latitude: latitude,
+                zoom: 8
+            }}
+            style={{ width: 600, height: 1000 }}
+            mapboxAccessToken='pk.eyJ1IjoibGFzc2V2IiwiYSI6ImNsMnU0YjNnaTA5ZGUzY28yZjU3bDJ6anYifQ.Qa_8AVnty69jSB-f54-5xQ'
+            mapStyle="mapbox://styles/mapbox/streets-v11"
+        >
+
+            {/* Marker where the user is */}
+            <Marker
+                latitude={latitude}
+                longitude={longitude}
+                anchor='bottom'
+            >
+                <FaMapPin color="red" size={30} />
+            </Marker>
+
+        </ReactMapGl>
+    )
 }
