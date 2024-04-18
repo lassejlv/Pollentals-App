@@ -18,7 +18,8 @@
     "react-leaflet": "^4.2.1",
     "react-map-gl": "^7.1.7",
     "react-router-dom": "^6.22.3",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "sonner": "^1.4.41"
   },
   "devDependencies": {
     "@types/bun": "^1.1.0",

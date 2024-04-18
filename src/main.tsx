@@ -9,6 +9,7 @@ import Map from "./pages/Map.tsx";
 import Navbar from "./components/Navbar.tsx";
 import Footer from "./components/Footer.tsx";
 import Settings from "./pages/Settings.tsx";
+import { Toaster } from "sonner";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Navbar />
+    <Toaster visibleToasts={1} />
     <RouterProvider router={router} />
     <Footer />
   </React.StrictMode>,

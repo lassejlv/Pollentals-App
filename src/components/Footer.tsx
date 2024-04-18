@@ -19,7 +19,7 @@ export default function Footer() {
 
   return (
     <>
-      <div className="absolute bottom-0 w-full bg-lightGreen p-4 text-center text-white">
+      <div className="absolute bottom-0 w-full overflow-hidden bg-lightGreen p-4 text-center text-white">
         <div className="flex items-center justify-between px-10">
           {links.map((link, index) => (
             <span
