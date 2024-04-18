@@ -40,7 +40,7 @@ export default function Map() {
           //Aalborg, Denmark
           longitude: longitude,
           latitude: latitude,
-          zoom: 8,
+          zoom: 10,
         }}
         style={{ width: 600, height: 1000 }}
         mapboxAccessToken={MapBoxToken}
